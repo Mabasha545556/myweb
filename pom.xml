@@ -28,12 +28,7 @@
 	</dependencies>
 	
 	<distributionManagement>
-		 <snapshotRepository>
-		    <id>myrepository-snapshot</id>
-		    <url>http://3.109.1.138:8081/repository/myrepository-snapshot/</url>
-		 </snapshotRepository>
-		
-		<repository>
+		 <repository>
 		    <id>myrepository</id>
 		    <url>http://3.109.1.138:8081/repository/myrepository/</url>
 		</repository>
