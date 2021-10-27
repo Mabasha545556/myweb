@@ -4,7 +4,7 @@
 	<groupId>in.javahome</groupId>
 	<artifactId>myweb</artifactId>
 	<packaging>war</packaging>
-	<version>1.0.0</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<name>Java Home myweb</name>
 	<url>http://maven.apache.org</url>
 	
@@ -28,10 +28,10 @@
 	</dependencies>
 	
 	<distributionManagement>
-		 <repository>
-		    <id>myrepository</id>
-		    <url>http://3.109.1.138:8081/repository/myrepository/</url>
-		</repository>
+		 <snapshotRepository>
+                 <id>myrepository-snapshot</id>
+                 <url>http://3.109.1.138:8081/repository/myrepository-snapshot/</url>
+                 </snapshotRepository>
   	</distributionManagement>
 	
 	<pluginRepositories>
