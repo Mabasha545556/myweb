@@ -1,0 +1,41 @@
+pipeline {
+    agent any
+    stages{
+        stage ("Git Checkout"){
+            steps{
+                git 'https://github.com/Mabasha545556/simple-app.git'
+            }
+        }
+        stage ("Maven Build"){
+            steps{
+            sh 'mvn clean install package'
+            }
+        } 
+        stage ("webhook stage"){
+            steps{
+            echo 'welocme to webhooks'
+            }
+        }
+        stage ("artifact upload to nexus"){
+            steps{
+                nexusArtifactUploader artifacts: [
+                    [
+                        artifactId: 'simple-app', 
+                        classifier: '', 
+                        file: 'target/simple-app-1.0.1-SNAPSHOT.war', 
+                        type: 'war'
+                        ]
+                        
+                    ], 
+                    credentialsId: 'nexus', 
+                    groupId: 'in.sample', 
+                    nexusUrl: '172.31.3.113:8081', 
+                    nexusVersion: 'nexus3', 
+                    protocol: 'http', 
+                    repository: 'myrepository', 
+                    version: '1.0.1'
+                       
+            }
+        }
+    }
+}
